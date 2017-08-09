@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.jobsapp.app.fragment.FragmentList;
 import com.jobsapp.app.fragment.FragmentMap;
@@ -22,6 +23,7 @@ public class Home extends Base {
     private TabLayout tabLayout;
     private Context context;
     private FloatingActionButton floatingActionButton;
+    private ImageView imageViewProfile;
 
 
     @Override
@@ -30,13 +32,10 @@ public class Home extends Base {
 
 
         context = this;
-        tabLayout = findViewById(R.id.tabLayout);
-        floatingActionButton = findViewById(R.id.floatingActionButton);
+
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tab_list)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tab_map)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
-        viewPager = findViewById(R.id.viewPager);
         final HomePagerAdapter adapter = new HomePagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -65,6 +64,14 @@ public class Home extends Base {
             }
         });
 
+
+        imageViewProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppUtils.navigateUpKeep(Home.this, Profile.class, null);
+            }
+        });
+
     }
 
     @Override
@@ -74,7 +81,10 @@ public class Home extends Base {
 
     @Override
     protected void setUpWidget() {
-
+        imageViewProfile = findViewById(R.id.imageViewProfile);
+        tabLayout = findViewById(R.id.tabLayout);
+        floatingActionButton = findViewById(R.id.floatingActionButton);
+        viewPager = findViewById(R.id.viewPager);
     }
 
     @Override
@@ -85,7 +95,7 @@ public class Home extends Base {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main,menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

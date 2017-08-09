@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+        layout="@layout/toolbar_home" />
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabLayout"
