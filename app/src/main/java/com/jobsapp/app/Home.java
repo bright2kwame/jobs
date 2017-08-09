@@ -56,8 +56,15 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         navigationView.getMenu().performIdentifierAction(R.id.menu_vacancies, 0);
         navigationView.setCheckedItem(R.id.menu_vacancies);
-
         navigationView.setItemIconTintList(null);
+
+
+        navigationView.getHeaderView(0).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppUtils.navigateUpKeep(Home.this, Profile.class, null);
+            }
+        });
 
     }
 
