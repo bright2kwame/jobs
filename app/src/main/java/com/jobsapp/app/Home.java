@@ -54,6 +54,10 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
+
+        navigationView.getMenu().performIdentifierAction(R.id.menu_vacancies, 0);
+        navigationView.setCheckedItem(R.id.menu_vacancies);
+
         navigationView.setItemIconTintList(null);
 
     }
