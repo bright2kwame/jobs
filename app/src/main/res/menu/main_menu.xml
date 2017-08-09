@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_vacancies"
+        android:checked="false"
+        android:title="Opportunities" />
+
+    <item
+        android:id="@+id/menu_companies"
+        android:checked="false"
+        android:title="Companies" />
+
+
+    <item
+        android:id="@+id/menu_applicants"
+        android:checked="false"
+        android:title="Applicants" />
+
+    <item
+        android:id="@+id/networks"
+        android:title="More">
+        <menu>
+            <group
+                android:id="@+id/group_settings"
+                android:checkableBehavior="single">
+
+
+                <item
+                    android:id="@+id/menu_setting"
+                    android:checked="false"
+                    android:title="Settings" />
+
+                <item
+                    android:id="@+id/menu_about"
+                    android:checked="false"
+                    android:title="About JOBS" />
+
+
+            </group>
+
+        </menu>
+    </item>
+
+</menu>
