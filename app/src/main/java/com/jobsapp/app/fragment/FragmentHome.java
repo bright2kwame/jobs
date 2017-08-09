@@ -3,6 +3,7 @@ package com.jobsapp.app.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,16 +13,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.jobsapp.app.AppUtils;
+import com.jobsapp.app.PostJob;
 import com.jobsapp.app.R;
 
 
 /**
  * Created by Monarchy on 25/04/16.
  */
-public class FragmentHome extends Fragment  {
+public class FragmentHome extends Fragment {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private Context context;
+    private FloatingActionButton floatingActionButton;
 
 
     @Override
@@ -31,6 +35,7 @@ public class FragmentHome extends Fragment  {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         context = getActivity();
         tabLayout = view.findViewById(R.id.tabLayout);
+        floatingActionButton = view.findViewById(R.id.floatingActionButton);
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tab_list)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tab_map)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
@@ -54,6 +59,13 @@ public class FragmentHome extends Fragment  {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
 
+            }
+        });
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppUtils.navigateUpKeep(getActivity(), PostJob.class, null);
             }
         });
 

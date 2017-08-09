@@ -12,10 +12,12 @@
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Home"/>
+        <activity android:name=".Home" />
+        <activity android:name=".PostJob"></activity>
     </application>
 
 </manifest>

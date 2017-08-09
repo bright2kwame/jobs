@@ -9,4 +9,7 @@
     <string name="open_drawer">Open</string>
     <string name="close_drawer">Close</string>
 
+
+    <string name="new_job">Post Job</string>
+
 </resources>
