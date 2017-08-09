@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="negative_item_margin">-4dp</dimen>
+    <dimen name="bar_elevation">6dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="activity_margin">16dp</dimen>
+    <dimen name="progress_height">2dp</dimen>
+    <dimen name="splash_logo">150dp</dimen>
+
+</resources>
