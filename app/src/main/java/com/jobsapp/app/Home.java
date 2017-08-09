@@ -10,13 +10,18 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.jobsapp.app.fragment.FragmentList;
 import com.jobsapp.app.fragment.FragmentMap;
 import com.jobsapp.app.helper.AppUtils;
 import com.jobsapp.app.helper.Base;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Home extends Base {
     private ViewPager viewPager;
@@ -99,6 +104,16 @@ public class Home extends Base {
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.menu_filter) {
+            showFilterMenu();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public class HomePagerAdapter extends FragmentPagerAdapter {
         int mNumOfTabs;
 
@@ -147,5 +162,18 @@ public class Home extends Base {
             return mNumOfTabs;
         }
 
+    }
+
+    private void showFilterMenu() {
+        List<String> list = new ArrayList<>();
+        list.add("UI Developer");
+        list.add("UX Developer");
+        list.add("Front End Developer");
+        new MaterialDialog.Builder(context)
+                .title("Filter Jobs")
+                .items(list)
+                .cancelable(true)
+                .negativeText("Ok")
+                .show();
     }
 }

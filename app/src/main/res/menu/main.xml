@@ -4,9 +4,17 @@
 
 
     <item
-        app:showAsAction="always"
+        android:orderInCategory="100"
         android:id="@+id/menu_search"
         android:icon="@drawable/ic_search"
-        android:title="Search" />
+        android:title="Search"
+        app:showAsAction="always" />
+
+    <item
+        android:orderInCategory="200"
+        android:id="@+id/menu_filter"
+        android:icon="@drawable/ic_filter_list"
+        android:title="Filter"
+        app:showAsAction="always" />
 
 </menu>
