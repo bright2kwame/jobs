@@ -2,101 +2,140 @@ package com.jobsapp.app;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
+import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.Menu;
 import android.view.View;
-import android.widget.TextView;
 
-import com.jobsapp.app.fragment.FragmentHome;
+import com.jobsapp.app.fragment.FragmentList;
+import com.jobsapp.app.fragment.FragmentMap;
 import com.jobsapp.app.helper.AppUtils;
+import com.jobsapp.app.helper.Base;
 
-public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private DrawerLayout drawerLayout;
-    private NavigationView navigationView;
-    private TextView textView;
+public class Home extends Base {
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
     private Context context;
+    private FloatingActionButton floatingActionButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
 
 
         context = this;
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        textView = findViewById(R.id.textViewTitle);
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("");
+        tabLayout = findViewById(R.id.tabLayout);
+        floatingActionButton = findViewById(R.id.floatingActionButton);
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tab_list)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tab_map)));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        navigationView = findViewById(R.id.navigation_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        drawerLayout = findViewById(R.id.drawer);
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_drawer, R.string.close_drawer) {
+        viewPager = findViewById(R.id.viewPager);
+        final HomePagerAdapter adapter = new HomePagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
+            public void onTabSelected(@Nullable TabLayout.Tab tab) {
+                int position = tab.getPosition();
+                viewPager.setCurrentItem(position);
+
             }
 
             @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
+            public void onTabUnselected(TabLayout.Tab tab) {
             }
-        };
 
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
 
-        navigationView.getMenu().performIdentifierAction(R.id.menu_vacancies, 0);
-        navigationView.setCheckedItem(R.id.menu_vacancies);
-        navigationView.setItemIconTintList(null);
+            }
+        });
 
-
-        navigationView.getHeaderView(0).setOnClickListener(new View.OnClickListener() {
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AppUtils.navigateUpKeep(Home.this, Profile.class, null);
+                AppUtils.navigateUpKeep(Home.this, PostJob.class, null);
             }
         });
 
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem menuItem) {
-        if (menuItem.isChecked())
-            menuItem.setChecked(false);
-        else
-            menuItem.setChecked(true);
+    protected int getLayoutResourceId() {
+        return R.layout.activity_home;
+    }
 
-        //Closing drawer on item click
-        drawerLayout.closeDrawers();
+    @Override
+    protected void setUpWidget() {
 
-        String name = getString(R.string.app_name);
-        Fragment fragment = null;
-        Bundle args = new Bundle();
+    }
 
-        switch (menuItem.getItemId()) {
-            case R.id.menu_vacancies:
-                fragment = new FragmentHome();
-                break;
+    @Override
+    protected String setTitle() {
+        return getString(R.string.app_name);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public class HomePagerAdapter extends FragmentPagerAdapter {
+        int mNumOfTabs;
+
+        public HomePagerAdapter(FragmentManager fm, int NumOfTabs) {
+            super(fm);
+            this.mNumOfTabs = NumOfTabs;
         }
 
-        if (fragment == null) {
-            return false;
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            String title = getString(R.string.app_name);
+            switch (position) {
+                case 0:
+                    title = getString(R.string.tab_list);
+                    break;
+                case 1:
+                    title = getString(R.string.tab_map);
+                    break;
+                default:
+                    break;
+            }
+
+            return title;
         }
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragment.setArguments(args);
-        fragmentTransaction.replace(R.id.frame, fragment);
-        fragmentTransaction.commit();
-        textView.setText(name);
-        return true;
+
+        @Override
+        public Fragment getItem(int position) {
+            Fragment fragment = null;
+            switch (position) {
+                case 0:
+                    fragment = new FragmentList();
+                    break;
+                case 1:
+                    fragment = new FragmentMap();
+                    break;
+                default:
+                    break;
+            }
+            return fragment;
+
+        }
+
+        @Override
+        public int getCount() {
+            return mNumOfTabs;
+        }
+
     }
 }

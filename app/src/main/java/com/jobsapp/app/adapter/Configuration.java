@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.jobsapp.app.ApplicantList;
+import com.jobsapp.app.Detail;
 import com.jobsapp.app.helper.AppUtils;
 import com.jobsapp.app.item.Applicant;
 import com.jobsapp.app.item.Job;
@@ -21,6 +22,12 @@ public class Configuration {
         TextView textViewApplicants = jobViewHolder.textViewApplicants;
 
 
+        jobViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppUtils.navigateUpKeep(activity, Detail.class, null);
+            }
+        });
         textViewApplicants.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

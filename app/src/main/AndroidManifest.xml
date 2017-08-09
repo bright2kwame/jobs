@@ -12,19 +12,15 @@
     <uses-feature
         android:name="android.hardware.location"
         android:required="true" />
-
     <uses-feature
         android:name="android.hardware.location.gps"
         android:required="false" />
-
     <uses-feature
         android:name="android.hardware.touchscreen"
         android:required="false" />
-
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
-
     <uses-feature android:name="android.hardware.camera" />
 
     <application
@@ -34,15 +30,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_key" />
-
 
         <activity android:name=".Splash">
             <intent-filter>
@@ -66,7 +59,8 @@
         <activity android:name=".Home" />
         <activity android:name=".PostJob" />
         <activity android:name=".Profile" />
-        <activity android:name=".ApplicantList"/>
+        <activity android:name=".ApplicantList" />
+        <activity android:name=".Detail"></activity>
     </application>
 
 </manifest>
