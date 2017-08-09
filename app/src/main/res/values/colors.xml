@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1999E3</color>
-    <color name="colorPrimaryDark">#147AB5</color>
+    <color name="colorPrimary">#273744</color>
+    <color name="colorPrimaryDark">#1F2C35</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorMenuBackground">#273744</color>
 
     <color name="activityBackgroundColor">#EEF3F5</color>
     <color name="colorIntroOne">#68309F</color>

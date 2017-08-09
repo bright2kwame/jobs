@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardView"
+    style="@style/BaseCardViewStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_margin">
+
+        <com.makeramen.roundedimageview.RoundedImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/small_dot"
+            android:layout_height="@dimen/small_dot"
+            android:layout_margin="@dimen/activity_margin"
+            android:background="@color/grey"
+            android:scaleType="centerCrop"
+            android:src="@color/colorPrimaryDark"
+            app:riv_border_color="@color/colorWhite"
+            app:riv_border_width="0dip"
+            app:riv_corner_radius="@dimen/small_dot"
+            app:riv_mutate_background="true"
+            app:riv_oval="true" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/imageView"
+            android:layout_toRightOf="@+id/imageView">
+
+            <TextView
+                android:id="@+id/textViewName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="Front End Developer"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/textViewMore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewName"
+                android:layout_marginBottom="@dimen/activity_margin"
+                android:maxLines="1"
+                android:text="Jobberman, East Legon"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+            <View
+                android:id="@+id/viewSideBar"
+                android:layout_width="2dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/textViewMore"
+                android:layout_marginTop="2dp"
+                android:background="@color/grey" />
+
+            <TextView
+                android:id="@+id/textViewApplicants"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewMore"
+                android:layout_marginLeft="@dimen/activity_margin"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:layout_toEndOf="@+id/viewSideBar"
+                android:layout_toRightOf="@+id/viewSideBar"
+                android:maxLines="1"
+                android:text="87 Applicants"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="14sp" />
+
+
+            <Button
+                android:id="@+id/buttonApply"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textViewApplicants"
+                android:background="@color/colorRed"
+                android:gravity="center"
+                android:text="Apply"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorWhite"
+                android:textSize="11sp" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

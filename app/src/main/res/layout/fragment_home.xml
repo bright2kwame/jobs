@@ -9,7 +9,7 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabIndicatorHeight="1dp"
+        app:tabIndicatorHeight="2dp"
         app:tabTextColor="@color/colorWhite"
         android:elevation="@dimen/bar_elevation"
         app:tabIndicatorColor="@color/colorWhite"

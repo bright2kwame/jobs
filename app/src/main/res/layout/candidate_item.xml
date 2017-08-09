@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardView"
+    style="@style/BaseCardViewStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayoutImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageViewApplicant"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/grey"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/textViewWork"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_margin"
+                android:alpha="0.7"
+                android:background="@color/colorGreen"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:text="Front End Developer"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorWhite" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeLayoutImage"
+            android:layout_margin="10dp"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:text="Comrade Hadi"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/textViewMore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewName"
+            android:layout_margin="10dp"
+            android:maxLines="4"
+            android:padding="10dp"
+            android:text="Comrade Hadi"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
