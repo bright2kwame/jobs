@@ -7,5 +7,6 @@
     <dimen name="progress_height">2dp</dimen>
     <dimen name="splash_logo">150dp</dimen>
     <dimen name="small_dot">10dp</dimen>
+    <dimen name="button_radius_toggle">2dp</dimen>
 
 </resources>

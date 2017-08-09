@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.jobsapp.app.fragment.FragmentHome;
+import com.jobsapp.app.helper.AppUtils;
 
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;

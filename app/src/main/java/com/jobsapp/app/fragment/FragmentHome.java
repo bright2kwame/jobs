@@ -13,7 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.jobsapp.app.AppUtils;
+import com.jobsapp.app.helper.AppUtils;
 import com.jobsapp.app.PostJob;
 import com.jobsapp.app.R;
 

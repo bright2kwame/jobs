@@ -1,4 +1,4 @@
-package com.jobsapp.app;
+package com.jobsapp.app.helper;
 
 /**
  * Created by Monarchy on 01/12/2016.

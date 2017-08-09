@@ -15,6 +15,89 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_happy_face" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.8"
+                    android:background="@color/colorPrimaryDark" />
+
+                <com.makeramen.roundedimageview.RoundedImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/imageView"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerInParent="true"
+                    android:background="@color/grey"
+                    android:scaleType="centerCrop"
+                    android:src="@color/colorPrimaryDark"
+                    app:riv_border_color="@color/colorWhite"
+                    app:riv_border_width="2dip"
+                    app:riv_corner_radius="100dp"
+                    app:riv_mutate_background="true"
+                    app:riv_oval="true" />
+
+                <ImageView
+                    android:id="@+id/imageViewAddVideo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_video_call" />
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/editTextFirstName"
+                android:layout_margin="@dimen/activity_margin"
+                android:hint="First name"
+                android:layout_width="match_parent"
+                android:lines="1"
+                android:inputType="textPersonName"
+                android:backgroundTint="@color/ediTextHintColor"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:backgroundTint="@color/ediTextHintColor"
+                android:id="@+id/editTextLastName"
+                android:layout_margin="@dimen/activity_margin"
+                android:hint="Last name"
+                android:layout_width="match_parent"
+                android:lines="1"
+                android:inputType="textPersonName"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:backgroundTint="@color/ediTextHintColor"
+                android:id="@+id/editTextBio"
+                android:layout_margin="@dimen/activity_margin"
+                android:hint="A little bio"
+                android:layout_width="match_parent"
+                android:lines="4"
+                android:layout_height="wrap_content" />
+
+
+            <Button
+                android:textColor="@color/colorWhite"
+                android:layout_width="match_parent"
+                android:text="Update Profile"
+                android:background="@drawable/button_primary"
+                android:layout_margin="@dimen/activity_margin"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
 
     </android.support.v4.widget.NestedScrollView>
 

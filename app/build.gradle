@@ -21,7 +21,7 @@ android {
 
 ext {
     supportLibVersion = '26.0.1'
-    playServiceVersion = '11.0.2'
+    playServiceVersion = '11.0.4'
     awsLibVersion = '2.3.2'
 }
 
@@ -33,6 +33,8 @@ dependencies {
     implementation "com.android.support:cardview-v7:${supportLibVersion}"
     implementation "com.makeramen:roundedimageview:2.3.0"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    api "io.github.memfis19:annca:0.3.7"
+    api "com.google.android.gms:play-services-maps:${playServiceVersion}"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.0'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.0'

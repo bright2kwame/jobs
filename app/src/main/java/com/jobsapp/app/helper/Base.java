@@ -1,4 +1,4 @@
-package com.jobsapp.app;
+package com.jobsapp.app.helper;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.jobsapp.app.R;
 
 /**
  * Created by Monarchy on 1/12/2016.
@@ -31,8 +33,8 @@ public abstract class Base extends AppCompatActivity {
     protected abstract String setTitle();
 
     private void configureToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        TextView textView = (TextView) findViewById(R.id.textViewTitle);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        TextView textView = findViewById(R.id.textViewTitle);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
             ActionBar actionBar = getSupportActionBar();

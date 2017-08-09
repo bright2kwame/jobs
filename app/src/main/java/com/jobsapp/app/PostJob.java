@@ -2,6 +2,8 @@ package com.jobsapp.app;
 
 import android.os.Bundle;
 
+import com.jobsapp.app.helper.Base;
+
 public class PostJob extends Base {
 
     @Override

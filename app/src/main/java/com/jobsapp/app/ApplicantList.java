@@ -1,51 +1,38 @@
-package com.jobsapp.app.fragment;
+package com.jobsapp.app;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.jobsapp.app.R;
 import com.jobsapp.app.adapter.BaseAdapter;
+import com.jobsapp.app.helper.Base;
+import com.jobsapp.app.item.Applicant;
 import com.jobsapp.app.item.Job;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-/**
- * Created by Monarchy on 25/04/16.
- */
-public class FragmentList extends Fragment {
+public class ApplicantList extends Base {
     private Context context;
     private BaseAdapter baseAdapter;
     private List<Object> objectList;
     private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView recyclerView;
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        View view = inflater.inflate(R.layout.fragment_list, container, false);
-        context = getActivity();
+        context = this;
 
-        recyclerView = view.findViewById(R.id.recyclerView);
-        swipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
+        recyclerView = findViewById(R.id.recyclerView);
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
 
         objectList = new ArrayList<>();
-        baseAdapter = new BaseAdapter(getActivity(), objectList);
+        baseAdapter = new BaseAdapter(this, objectList);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(true);
@@ -66,29 +53,25 @@ public class FragmentList extends Fragment {
         swipeRefreshLayout.setRefreshing(false);
 
 
-        Job job = new Job();
-        objectList.add(job);
-        objectList.add(job);
-
-        return view;
-    }
+        Applicant applicant = new Applicant();
+        objectList.add(applicant);
+        objectList.add(applicant);
 
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
+    protected int getLayoutResourceId() {
+        return R.layout.activity_applicant_list;
     }
 
+    @Override
+    protected void setUpWidget() {
 
+    }
+
+    @Override
+    protected String setTitle() {
+        return getString(R.string.applicants);
+    }
 }

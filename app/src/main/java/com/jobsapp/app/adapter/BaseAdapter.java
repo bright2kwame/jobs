@@ -48,8 +48,8 @@ public class BaseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
                 viewHolder = new JobViewHolder(jobViewHolder);
                 break;
             case APPLICANTS:
-                View applicantViewHolder = inflater.inflate(R.layout.job_item, viewGroup, false);
-                viewHolder = new JobViewHolder(applicantViewHolder);
+                View applicantViewHolder = inflater.inflate(R.layout.candidate_item, viewGroup, false);
+                viewHolder = new ApplicantViewHolder(applicantViewHolder);
                 break;
         }
         return viewHolder;

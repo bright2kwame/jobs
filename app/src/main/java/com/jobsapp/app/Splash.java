@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.jobsapp.app.helper.Base;
+
 import java.util.Timer;
 import java.util.TimerTask;
 

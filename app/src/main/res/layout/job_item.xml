@@ -67,6 +67,7 @@
                 android:layout_toEndOf="@+id/viewSideBar"
                 android:layout_toRightOf="@+id/viewSideBar"
                 android:maxLines="1"
+                android:textColor="@color/colorPrimary"
                 android:text="87 Applicants"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textSize="14sp" />
