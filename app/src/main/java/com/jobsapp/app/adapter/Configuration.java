@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.jobsapp.app.ApplicantList;
 import com.jobsapp.app.Detail;
+import com.jobsapp.app.PlayVideo;
 import com.jobsapp.app.helper.AppUtils;
 import com.jobsapp.app.item.Applicant;
 import com.jobsapp.app.item.Job;
@@ -36,7 +37,13 @@ public class Configuration {
         });
     }
 
-    public static void setUpApplicant(ApplicantViewHolder applicantViewHolder, Applicant applicant, int position, Activity activity) {
+    public static void setUpApplicant(ApplicantViewHolder applicantViewHolder, Applicant applicant, int position, final Activity activity) {
 
+        applicantViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppUtils.navigateUpKeep(activity, PlayVideo.class, null);
+            }
+        });
     }
 }

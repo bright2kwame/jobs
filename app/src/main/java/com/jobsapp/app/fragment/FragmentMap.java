@@ -47,9 +47,10 @@ public class FragmentMap extends Fragment
         View view = inflater.inflate(R.layout.fragment_map, container, false);
         context = getActivity();
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
 
+
+        SupportMapFragment mapFragment = ((SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map));
+        mapFragment.getMapAsync(this);
 
         return view;
     }
@@ -94,15 +95,22 @@ public class FragmentMap extends Fragment
 
             CameraPosition cameraPosition = new CameraPosition.Builder()
                     .target(new LatLng(location.getLatitude(), location.getLongitude()))      // Sets the center of the map to location user
-                    .zoom(17)                   // Sets the zoom
-                    .bearing(90)                // Sets the orientation of the camera to east
-                    .tilt(40)                   // Sets the tilt of the camera to 30 degrees
+                    .zoom(6.5f)                   // Sets the zoom
+                    // Sets the tilt of the camera to 30 degrees
                     .build();                   // Creates a CameraPosition from the builder
             map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
         } else {
-            LatLng sydney = new LatLng(5.6037, 0.1870);
-            map.addMarker(new MarkerOptions().position(sydney).title("Accra"));
-            map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+            LatLng accra = new LatLng(5.6037, 0.1870);
+
+            CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(new LatLng(accra.latitude, accra.longitude))      // Sets the center of the map to location user
+                    .zoom(6.5f)
+                    .build();
+
+
+            map.addMarker(new MarkerOptions().position(accra).title("Accra"));
+            map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
         }
     }
