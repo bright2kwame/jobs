@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context="com.jobsapp.app.PlayVideo">
 
     <include
@@ -14,6 +15,39 @@
         android:id="@+id/player"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/lineLayoutActions"
         android:layout_below="@+id/toolbar" />
+
+    <LinearLayout
+        android:id="@+id/lineLayoutActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_margin="@dimen/activity_margin"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonReject"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="30dp"
+            android:background="@drawable/button_plain"
+            android:text="Reject"
+            android:layout_margin="@dimen/button_margin"
+            android:textColor="@color/colorPrimary" />
+
+        <Button
+            android:layout_margin="@dimen/button_margin"
+            android:id="@+id/buttonAccept"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="30dp"
+            android:background="@drawable/button_plain"
+            android:text="Accept"
+            android:textColor="@color/colorPrimary" />
+
+
+    </LinearLayout>
 
 </RelativeLayout>
